@@ -1,13 +1,26 @@
 import { client } from '../../api';
-export const ADD_TODOS = 'ADD_TODOS';
+export const ADD_TODOS = '@@todos/ADD_TODOS';
+export const SET_LOADING = '@@todos/SET_LOADING';
+export const SET_ERROR = '@@todos/SET_ERROR';
+
 const addTodos = (todos) => ({
   type: ADD_TODOS,
   payload: todos,
 });
 
+export const setLoading = () => ({
+  type: SET_LOADING,
+});
+
+const setError = (err) => ({
+  type: SET_ERROR,
+  payload: err,
+});
+
 export const loadTodos = () => (dispatch) => {
+  dispatch(setLoading());
   client
-    .get('https://jsonplaceholder.typicode.com/todos')
+    .get('https://jsonplaceholder.typicode.com/todoss')
     .then((data) => dispatch(addTodos(data)))
-    .catch((err) => console.error(err));
+    .catch((err) => dispatch(setError(err)));
 };
