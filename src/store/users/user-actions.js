@@ -1,4 +1,3 @@
-import { client } from '../../api';
 export const SET_LOADING = '@@users/SET_LOADING';
 export const ADD_USERS = 'ADD_USERS';
 export const SET_ERROR = '@@users/SET_ERROR';
@@ -17,7 +16,7 @@ const setError = (err) => ({
 });
 
 // thunk функция
-export const loadUsers = () => (dispatch) => {
+export const loadUsers = () => (dispatch, _, client) => {
   dispatch(setLoading());
   client
     .get('https://jsonplaceholder.typicode.com/users')

@@ -28,6 +28,7 @@ client.get = function (endpoint, customConfig = {}) {
 };
 
 client.post = function (endpoint, body, customConfig = {}) {
+  console.log(body);
   return client(endpoint, { ...customConfig, body });
 };
 

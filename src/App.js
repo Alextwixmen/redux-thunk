@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadUsers } from './store/users/user-actions';
 import { loadTodos } from './store/todos/todos-actions';
+import { NewTodo } from './components/NewTodo';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className='App'>
+      <NewTodo />
       <UserList />
       <TodoList />
     </div>
