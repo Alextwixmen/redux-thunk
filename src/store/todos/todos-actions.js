@@ -20,7 +20,7 @@ const setError = (err) => ({
 export const loadTodos = () => (dispatch) => {
   dispatch(setLoading());
   client
-    .get('https://jsonplaceholder.typicode.com/todoss')
+    .get('https://jsonplaceholder.typicode.com/todos')
     .then((data) => dispatch(addTodos(data)))
     .catch((err) => dispatch(setError(err)));
 };
