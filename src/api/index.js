@@ -1,6 +1,6 @@
 export const client = async (endpoint, { body, ...customConfig }) => {
   const headers = {
-    'Content-Type': 'aplication/json',
+    'Content-Type': 'application/json',
   };
   const config = {
     method: body ? 'POST' : 'GET',
